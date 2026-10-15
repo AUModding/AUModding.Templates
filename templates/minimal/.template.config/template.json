@@ -1,0 +1,44 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "AUModding",
+    "identity": "AUModding.Minimal",
+    "name": "AUModding.Minimal",
+    "description": "A bare-bones Among Us mod template.",
+    "shortName": "aumodding.minimal",
+    "sourceName": "ModTemplate",
+    "preferNameDirectory": true,
+    "classifications": ["Among Us", "Modding"],
+    "tags": {
+        "language": "C#",
+        "type": "project",
+        "platform": "Among Us"
+    },
+    "symbols": {
+        "pluginName": {
+            "type": "derived",
+            "valueSource": "name",
+            "valueTransform": "ValueAfterLastDot"
+        },
+        "pluginClass": {
+            "type": "generated",
+            "datatype": "string",
+            "generator": "join",
+            "parameters": {
+                "separator": "",
+                "symbols": [
+                    { "type": "ref", "value": "pluginName" },
+                    { "type": "const", "value": "Plugin" }
+                ]
+            },
+            "replaces": "TemplatePlugin",
+            "fileRename": "TemplatePlugin"
+        }
+    },
+    "forms": {
+        "ValueAfterLastDot": {
+            "identifier": "replace",
+            "pattern": "^.*\\.(?=[^\\.]+$)",
+            "replacement": ""
+        }
+    }
+}

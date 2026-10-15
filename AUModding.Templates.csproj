@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <PackageId>AUModding.Templates</PackageId>
+        <PackageVersion>1.0.0</PackageVersion>
+        <Authors>AUModding</Authors>
+        <Description>Among Us mod project templates.</Description>
+        <PackageType>Template</PackageType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+        <PackageProjectUrl>https://aumodding.dev</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AUModding/AUModding.Templates</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+
+        <EnableDefaultItems>false</EnableDefaultItems>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+
+        <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+        <SuppressFrameworkReferences>true</SuppressFrameworkReferences>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="" />
+        <None Include="LICENSE" Pack="true" PackagePath="" />
+        <Content Include="templates/**/*" Exclude="templates/**/bin/**;templates/**/obj/**" />
+    </ItemGroup>
+</Project>

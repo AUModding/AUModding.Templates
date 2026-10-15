@@ -1,0 +1,44 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "AUModding",
+    "identity": "AUModding.Reactor",
+    "name": "AUModding.Reactor",
+    "description": "An Among Us mod with Reactor pre-configured.",
+    "shortName": "aumodding.reactor",
+    "sourceName": "ModTemplate",
+    "preferNameDirectory": true,
+    "classifications": ["Among Us", "Modding", "Reactor"],
+    "tags": {
+        "language": "C#",
+        "type": "project",
+        "platform": "Among Us"
+    },
+    "symbols": {
+        "pluginName": {
+            "type": "derived",
+            "valueSource": "name",
+            "valueTransform": "ValueAfterLastDot"
+        },
+        "pluginClass": {
+            "type": "generated",
+            "datatype": "string",
+            "generator": "join",
+            "parameters": {
+                "separator": "",
+                "symbols": [
+                    { "type": "ref", "value": "pluginName" },
+                    { "type": "const", "value": "Plugin" }
+                ]
+            },
+            "replaces": "TemplatePlugin",
+            "fileRename": "TemplatePlugin"
+        }
+    },
+    "forms": {
+        "ValueAfterLastDot": {
+            "identifier": "replace",
+            "pattern": "^.*\\.(?=[^\\.]+$)",
+            "replacement": ""
+        }
+    }
+}
