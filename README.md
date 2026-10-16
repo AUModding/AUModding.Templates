@@ -1,7 +1,7 @@
 # AUModding.Templates
 https://www.nuget.org/packages/AUModding.Templates
 
-This repository contains various templates for various APIs which allow you to get started quickly on your next AU Project.
+This repository contains various templates for some APIs which allow you to get started quickly on your next Among Us mod.
 
 To get started, do `dotnet new install AUModding.Templates`
 
