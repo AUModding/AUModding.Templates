@@ -5,18 +5,33 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <DebugType>embedded</DebugType>
-
+        <Platforms>Windows;Android;iOS</Platforms>
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>dev</VersionSuffix>
         <Description>Mod generated using AUModding Reactor Template</Description>
         <!-- <Authors>your name</Authors> -->
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Platform)' == 'Windows'">
+        <DefineConstants>$(DefineConstants);Windows</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'Android'">
+        <DefineConstants>$(DefineConstants);Android</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'iOS'">
+        <DefineConstants>$(DefineConstants);iOS</DefineConstants>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.735" Private="false" ExcludeAssets="runtime;native" />
         <PackageReference Include="BepInEx.IL2CPP.MSBuild" Version="2.1.0-rc.1" PrivateAssets="all" ExcludeAssets="runtime" />
         <PackageReference Include="BepInEx.AutoPlugin" Version="1.1.0" PrivateAssets="all" />
-        <PackageReference Include="AmongUs.GameLibs.Steam" Version="2026.9.29" PrivateAssets="all" />
+        <PackageReference Include="AmongUs.GameLibs.Steam" Version="2026.9.29" PrivateAssets="all" Condition="'$(Platform)' == 'Windows'" />
+        <PackageReference Include="AmongUs.GameLibs.Android" Version="2026.9.29" PrivateAssets="all" Condition="'$(Platform)' == 'Android'" />
+        <!-- iOS game libs are not published on nuget.bepinex.dev yet; uncomment once AmongUs.GameLibs.iOS is available -->
+        <!-- <PackageReference Include="AmongUs.GameLibs.iOS" Version="2026.9.29" PrivateAssets="all" Condition="'$(Platform)' == 'iOS'" /> -->
         <PackageReference Include="Reactor" Version="2.5.0-ci.371"/>
     </ItemGroup>
 
